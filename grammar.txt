@@ -1,0 +1,9 @@
+tag_wrapper : {%.*%}
+obj_wrapper : {{.*}}
+ops = ==|!=|>|<|>=|<=|or|and|contains
+tag_start : if|for|date_start
+tag_mid : else|elif
+tag_end : endif|endfor|date_end
+object : view_name.field_name.variable_name
+tag : bool_start object ... bool_end
+expr : wrapper  wrapper
