@@ -362,11 +362,16 @@ measure: value {
 #     message = Parser(field_dict)
 
 def main(liquid_input):
+    global field_names
+    global response_dicts
+    response_dicts = []
     Fields(liquid_input)
     for field in field_names:
         parse_object = Parser(globals()[field+"_dict"])
         globals()["parsed_" + field + "_dict"] = parse_object.perform_magic()
         response_dicts.append(globals()["parsed_" + field + "_dict"])
+        del parse_object
+    field_names = []
     return response_dicts
 
 if __name__ == "__main__":
